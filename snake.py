@@ -8,6 +8,7 @@ RIGHT = 0
 LEFT = 180
 
 
+
 class Snake:
     def __init__(self):
         self.score = None
@@ -16,6 +17,16 @@ class Snake:
         self.head = self.segments[0]
         self.tail = self.segments[len(self.segments)-1]
         self.tail_position = None
+
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000,1000)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+        self.tail = self.segments[len(self.segments)-1]
+
+
 
     def create_snake(self):
         n,m = 0,0
